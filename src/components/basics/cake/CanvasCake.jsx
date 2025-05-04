@@ -67,7 +67,9 @@ export default function CanvasCake() {
 }
 
 function Scene(props) {
-  const { nodes, materials } = useGLTF("/glass-transformed.glb");
+  const { nodes, materials } = useGLTF(
+    "/omanshu-portfolio/glass-transformed.glb"
+  );
   return (
     <group {...props} dispose={null}>
       <mesh
