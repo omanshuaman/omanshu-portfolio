@@ -8,7 +8,7 @@ import CanvasCake from "./components/basics/cake/CanvasCake";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/omanshu-portfolio">
         <Routes>
           <Route path="/" element={<CanvasComp />} />
           <Route path="/cake" element={<CanvasCake />} />
