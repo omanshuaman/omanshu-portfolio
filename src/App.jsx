@@ -1,9 +1,6 @@
 import "./App.css";
-import { Canvas } from "@react-three/fiber";
-import Experience from "./components/basics/cube-r3f/Experience";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import CanvasComp from "./components/basics/cube-r3f/CanvasComp";
-import CanvasCake from "./components/basics/cake/CanvasCake";
+import CanvasComp from "./pages/cube-r3f/CanvasComp";
 
 function App() {
   return (
@@ -11,7 +8,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<CanvasComp />} />
-          <Route path="/cake" element={<CanvasCake />} />
+          <Route path="/cake" element={<CanvasComp />} />
         </Routes>
       </HashRouter>
     </>
