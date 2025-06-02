@@ -3,14 +3,12 @@ import {
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
-import { useFrame, useLoader } from "@react-three/fiber";
+import { useLoader } from "@react-three/fiber";
 import { useControls } from "leva";
-import { Suspense, useRef } from "react";
+import { Suspense } from "react";
 import { RepeatWrapping, TextureLoader } from "three";
 
 export default function Experience() {
-  const ref = useRef(null);
-
   const floorColorTexture = useLoader(
     TextureLoader,
     "./textures/sandy_gravel_02_1k/sandy_gravel_02_diff_1k.jpg"
