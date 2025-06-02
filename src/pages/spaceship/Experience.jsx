@@ -4,6 +4,7 @@ import {
   PerspectiveCamera,
 } from "@react-three/drei";
 import { useFrame, useLoader } from "@react-three/fiber";
+import { useControls } from "leva";
 import { Suspense, useRef } from "react";
 import { RepeatWrapping, TextureLoader } from "three";
 
@@ -41,6 +42,20 @@ export default function Experience() {
   floorDisplacementTexture.repeat.set(4, 4);
   floorDisplacementTexture.wrapS = RepeatWrapping;
   floorDisplacementTexture.wrapT = RepeatWrapping;
+  const { displacementBias, displacementScale } = useControls("floor", {
+    displacementBias: {
+      value: -0.2,
+      min: -1,
+      max: 1,
+      step: 0.01,
+    },
+    displacementScale: {
+      value: 0.3,
+      min: 0,
+      max: 1,
+      step: 0.01,
+    },
+  });
   return (
     <>
       <color attach={"background"} args={["#262837"]} />
@@ -57,7 +72,8 @@ export default function Experience() {
             metalnessMap={floorARMTexture}
             normalMap={floorNormalTexture}
             displacementMap={floorDisplacementTexture}
-            displacementScale={0.3}
+            displacementScale={displacementScale}
+            displacementBias={displacementBias}
           />
         </mesh>
         <mesh receiveShadow rotation={[-Math.PI * 0.5, 0, 0]}>
